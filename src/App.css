@@ -1,0 +1,77 @@
+/* App.css */
+
+.page-container {
+    width: 30%; 
+  }
+  
+.search-container {
+    display: flex;
+    align-items: center; /* This centers the items vertically within the container */
+    margin-right: 10px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+  }
+  
+
+.search-container span {
+    margin-right: 20px;
+}
+
+.search-container input {
+  margin-right: 40px;
+}
+
+/* Apply styles to each user container */
+.user-container {
+    margin-bottom: 10px;
+    margin-inline-end: 50px;
+    padding: 10px;
+    position: relative;
+  }
+  
+  .red-border {
+    border: 2px solid red;
+  }
+  
+  .green-border {
+    border: 2px solid green;
+  }
+
+  .user-container button {
+    margin-right: 10px;
+  }
+
+/* Specific spacing for each button */
+.user-container button:nth-of-type(1) {
+    margin-right: 90px; /* Adjust the value as needed */
+  }
+  
+  .user-container button:nth-of-type(2) {
+    margin-right: 3px; /* Adjust the value as needed */
+  }
+  
+  /* Remove margin-right from the last button */
+  .user-container button:last-of-type {
+    margin-right: 100;
+  }
+
+  .additional-data {
+    position: relative;
+    top: 100%; /* Position it below the "Other Data" button */
+    left: 10;
+    width: 92%;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 10px;
+    background-color: rgb(240,240,240);
+    border: 2px solid black;
+    border-radius: 15px;
+    display: none; /* Hide it by default */
+    z-index: 1; /* Ensure it appears above other elements */
+  }
+
+  .user-container:hover .additional-data {
+    display: block;
+  }
+  
+  
