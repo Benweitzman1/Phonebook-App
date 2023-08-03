@@ -16,36 +16,32 @@ This is a simple React web application that allows users to manage a list of use
   - See if all tasks are completed
 
 ## Getting Started
-
 To run this project locally, follow these steps:
 
 1. Clone the repository to your local machine:
-```bash
-git clone https://github.com/your-username/react-user-management-app.git
-```
+    ```bash
+    git clone https://github.com/your-username/react-user-management-app.git
+    ```
 2. Change into the project directory:
-   ```
-   cd User-Management-App
-   ```
+    ```
+    cd User-Management-App
+    ```
 3. Install dependencies:
-   ```
-   npm install
-   ```
+    ```
+    npm install
+    ```
 
 ## Usage
-
 Start the application:
 ```
 npm start
 ```
 
-
 ## Dependencies
 This project relies on the following dependencies:
-
-# React: A JavaScript library for building user interfaces.
-# axios: A library for making HTTP requests to the API.
-# CSS: Stylesheets for layout and styling.
+- React: A JavaScript library for building user interfaces.
+- axios: A library for making HTTP requests to the API.
+- CSS: Stylesheets for layout and styling.
 
 ## API
 This app fetches user data from the JSONPlaceholder API. The API returns a list of users with their respective information.
@@ -53,6 +49,6 @@ This app fetches user data from the JSONPlaceholder API. The API returns a list 
 ## Todo List
 Each user in the app has a todo list feature. The todo list allows users to manage their tasks. The main features of the todo list are:
 
-# Add new tasks to the list
-# Delete tasks from the list
-# See if all tasks are completed
+- Add new tasks to the list
+- Delete tasks from the list
+- See if all tasks are completed
