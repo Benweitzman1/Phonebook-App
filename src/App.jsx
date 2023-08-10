@@ -54,6 +54,17 @@ function App() {
     }
   }, [selectedUserId]);
 
+  useEffect(() => {
+    const storedTodos = localStorage.getItem('todos');
+    if (storedTodos) {
+      setTodos(JSON.parse(storedTodos));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos));
+  }, [todos]);
+
   const hasCompletedTasks = (userId) => {
     const userTodos = todos.filter((todo) => todo.userId === userId);
     return userTodos.some((todo) => todo.completed);
@@ -94,6 +105,25 @@ function App() {
     setSelectedUserId(userId);
   };
 
+  const handleMarkCompleted = (todoId) => {
+    // Find the todo by its ID
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, completed: true } : todo
+    );
+  
+    setTodos(updatedTodos);
+  };
+
+  const areAllUserTodosCompleted = (userId) => {
+    const userTodos = todos.filter((todo) => todo.userId === userId);
+    return userTodos.every((todo) => todo.completed);
+  };
+
+  const hasIncompleteTasks = (userId) => {
+    const userTodos = todos.filter((todo) => todo.userId === userId);
+    return userTodos.some((todo) => !todo.completed);
+  };
+
   return (
     <div className="page-container">
       {/* Search Bar */}
@@ -115,9 +145,12 @@ function App() {
         {/* Display Users */}
         {filteredUsers.map((user) => (
           <div
-            key={user.id}
-            className={`user-container ${user.hasCompletedTasks ? 'red-border' : 'green-border'}`}
-          >
+          key={user.id}
+          className={`user-container ${
+            areAllUserTodosCompleted(user.id) && !hasIncompleteTasks(user.id)
+              ? 'red-border' : 'green-border'
+          }`}
+        >
             <button onClick={() => handleOtherDataClick(user.id)}>ID: {user.id}</button>
             <p>Name: {user.name}</p>
             <p>Email: {user.email}</p>
@@ -131,7 +164,9 @@ function App() {
                 <p>Zip Code: {user.address.zipcode}</p>
               </div>
             )}
-            {hasCompletedTasks(user.id) && <div className="completed-tasks">Completed Tasks</div>}
+             {areAllUserTodosCompleted(user.id) && !hasIncompleteTasks(user.id) && (
+              <div className="completed-tasks">Completed Tasks</div>
+            )}
             <button>Update</button>
             <button>Delete</button>
           </div>
@@ -148,6 +183,11 @@ function App() {
                 <span>Title: {todo.title}</span>
                 <br />
                 <span>Completed: {todo.completed ? 'Yes' : 'No'}</span>
+                {!todo.completed && (
+                  <button className="mark-completed-button" onClick={() => handleMarkCompleted(todo.id)}>
+                    Mark Completed
+                  </button>
+                )}
               </li>
             ))}
           </ul>

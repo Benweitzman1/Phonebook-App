@@ -118,3 +118,18 @@ margin-bottom: 20px; /* Add some space between the search and user addition and 
     color: white;
     padding: 5px;
   }
+
+  .mark-completed-button {
+    margin-top: 5px;
+    margin-left: 60px;
+    background-color: #8a2be2; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .mark-completed-button:hover {
+    background-color: #6a1d9b; 
+  }
